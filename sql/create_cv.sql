@@ -23,7 +23,7 @@ create table wrk (
 id int not null auto_increment primary key, 
 persId int, 
 role varchar(200), 
-org varchar(40), 
+org varchar(50), 
 era varchar(30) 
 );
 

@@ -4,9 +4,20 @@ select * from cv.wrk;
 select * from cv.dty;
 select * from cv.skl;
 
+select concat('\n\n- ', (select group_concat(d.duty separator '\n- ') from dty d)) as duty_list;
+
 use cv;
-SELECT p.name, e.ach, w.role, d.duty, s.skl 
-FROM person p, edu e, wrk w, dty d, skl s 
-WHERE e.persId = p.id 
-AND w.persId = p.id AND d.wrkId = w.id 
-AND s.persId = p.id;
+select name, email from person where id = 1;
+select ach, org, yr from edu where persId = 1;
+
+select role, org, era, duty 
+from wrk w left outer join dty d 
+on w.id = d.wrkId 
+where persId = 1; -- GOOD WRK+DTY QUERY
+
+select distinct w.role, w.org, w.era, 
+(select concat('\n\n- ', (select group_concat(d.duty separator '\n- ') from dty d where d.wrkId = w.id))) as duty_list 
+from wrk w left outer join dty d 
+on w.id = d.wrkId 
+where persId = 1; -- BEST WRK+DTY QUERY!
+
