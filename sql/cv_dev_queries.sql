@@ -1,11 +1,12 @@
 SELECT * FROM cv.person;
-select * from edu;
-select * from wrk;
-select * from dty;
-select * from skl;
-SELECT a.ord_num,b.cust_name,a.cust_code,
-c.agent_code,b.cust_city
-FROM agents c,customer b,orders a
-WHERE b.cust_city=c.working_area
-AND a.cust_code=b.cust_code
-AND a.agent_code=c.agent_code;
+select * from cv.edu;
+select * from cv.wrk;
+select * from cv.dty;
+select * from cv.skl;
+
+use cv;
+SELECT p.name, e.ach, w.role, d.duty, s.skl 
+FROM person p, edu e, wrk w, dty d, skl s 
+WHERE e.persId = p.id 
+AND w.persId = p.id AND d.wrkId = w.id 
+AND s.persId = p.id;
