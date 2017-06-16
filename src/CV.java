@@ -59,7 +59,7 @@ public class CV extends HttpServlet {
 		String cv = "";	
 		
 		try{		
-			psql = "select concat('\n<br>=============================================================  \n<br>', p.name, '\n<br>', p.email, '\n<br>\n<br>') as pers_info from person p where id = 1";
+			psql = "select concat('=============================================================  \n<br>', p.name, '\n<br>', p.email, '\n<br>\n<br>') as pers_info from person p where id = 1";
 			pst = con.prepareStatement(psql);
 			fName = "%"+fName+"%" ;
 //			println(fName);
@@ -82,9 +82,9 @@ public class CV extends HttpServlet {
 			psql = "select distinct w.role, w.org, w.era, (select concat('\n<br>\n<br>- ', (select group_concat(d.duty separator '\n<br>- ') from dty d where d.wrkId = w.id))) as duty_list from wrk w left outer join dty d on w.id = d.wrkId where persId = 1";
 			pst = con.prepareStatement(psql);
 			rs = pst.executeQuery();
-			cv = cv.concat("Experience  \\n<br>");
+			cv = cv.concat("Experience  \n<br>");
 			while(rs.next()){
-			cv = cv.concat(rs.getString(1)+"\n<br>"+rs.getString(2)+", "+rs.getString(3)+"\n<br>\n<br>"+rs.getString(4));
+			cv = cv.concat(rs.getString(1)+"\n<br>"+rs.getString(2)+", "+rs.getString(3)+""+rs.getString(4)+"\n<br>\n<br>");
 			}
 			
 			psql = "select concat('Skills\n<br>', (select group_concat(s.skl, ', ', s.lvl, '\n<br>' separator '') from skl s where s.persId = 1) ) as skl_list";
