@@ -1,16 +1,157 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Customer Data Retrieval</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web CV Input Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    
+      body {
+/*       	background: url(linen.png) repeat center top; */
+      }
+      
+      html {
+/*       	color: white; */
+      }
+      
+      #submit_button {
+      	background: darkolivegreen;
+      }
+      
+      #wrapper { 
+        width:595px;
+        margin:0 auto;
+      }
+      legend {
+        margin-top: 20px;
+      }
+      #attribution {
+        font-size:12px;
+        color:#999;
+        padding:20px;
+        margin:20px 0;
+        border-top:1px solid #ccc;
+      }
+      #O_o { 
+        text-align: center; 
+        background: #33577b;
+        color: #b4c9dd;
+        border-bottom: 1px solid #294663;
+      }
+      #O_o a:link, #O_o a:visited {
+        color: #b4c9dd;
+        border-bottom: #b4c9dd;
+        display: block;
+        padding: 8px;
+        text-decoration: none;
+      }
+      #O_o a:hover, #O_o a:active {
+        color: #fff;
+        border-bottom: #fff;
+        text-decoration: none;
+      }
+      @media only screen and (max-width: 620px), only screen and (max-device-width: 620px) {
+        #wrapper {
+          width: 90%;
+        }
+        legend {
+          font-size: 24px;
+          font-weight: 500;
+        }
+      }
+      </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/clone-form-td-multiple.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> <!-- only added as a smoke test for js conflicts -->
 </head>
+
 <body>
-<p>Customer Data Retrieval
-</p>
- <form action="CV" method= "post" >
-  Enter Name: <input type="text" name="webName">
-  <br><br>
-  <input type="submit" value="Retrieve">
-</form>
+    <div id="wrapper">
+      <div class="well well-lg">
+        <h1><b>Web CV Input Form</b></h1>
+        
+      </div>
+      <form action="CV" method="post" id="sign-up_area" role="form">
+<!--         <legend>Enter your information into the following fields:</legend> -->
+        <fieldset>
+
+        <!-- Name section-->
+        <div class="form-group">
+          <label class="label_fn control-label" for="fName">Name:</label>
+          <input id="fName" name="fName" type="text" placeholder="" class="input_fn form-control" required="">
+          <p class="help-block">This field is required.</p>
+        </div>
+
+        <!-- Email section -->
+          <div class="form-group">
+            <label class="label_email control-label" for="email_address">Email:</label>
+            <input id="fEmail" name="fEmail" type="text" placeholder="like this: joe@example.com" class="input_email form-control">
+            <p class="help-block">This field is required.</p>
+          </div>
+
+        <!-- Begin cloned Education section -->
+        <div id="entry1" class="clonedInput_1">
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="label_edu control-label" for="eduAch">Education (at least one entry):</label>
+            <input id="email_address" name="email_address" type="text" placeholder="like this: Comp.Sc.PhD" class="input_edu form-control">
+<!--             <p class="help-block">One entry in this section is required.</p> -->
+          </div>
+        </div><!-- end #entry1 -->
+        <p>
+        <button type="button" id="btnAdd_1" name="btnAdd" class="btn btn-primary">Add Educational Achievement</button>
+          <button type="button" id="btnDel_1" name="btnDel" class="btn btn-danger"><span class="ui-button-text">Remove Educational Achievement</span></button>
+        </p>
+        
+        <!-- Begin cloned Experience section -->
+        <div id="entry2" class="clonedInput_2">
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="label_wrk control-label" for="eduAch">Experience:</label>
+            <input id="email_address" name="email_address" type="text" placeholder="like this: CEO" class="input_wrk form-control">
+<!--             <p class="help-block">One entry in this section is required.</p> -->
+          </div>
+        </div><!-- end #entry2 -->
+        <p>
+        <button type="button" id="btnAdd_1" name="btnAdd" class="btn btn-primary">Add Experience</button>
+          <button type="button" id="btnDel_1" name="btnDel" class="btn btn-danger"><span class="ui-button-text">Remove Experience</span></button>
+        </p>
+        
+        <!-- Begin cloned Skills section -->
+        <div id="entry3" class="clonedInput_3">
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="label_skl control-label" for="skl">Skills:</label>
+            <input id="email_address" name="email_address" type="text" placeholder="like this: Web app development" class="input_skl form-control">
+<!--             <p class="help-block">One entry in this section is required.</p> -->
+          </div>
+        </div><!-- end #entry3 -->
+        <p>
+        <button type="button" id="btnAdd_1" name="btnAdd" class="btn btn-primary">Add Skill</button>
+          <button type="button" id="btnDel_1" name="btnDel" class="btn btn-danger"><span class="ui-button-text">Remove Skill</span></button>
+        </p>
+        
+<!--         Textarea -->
+<!--         <label class="control-label" for="notes">Notes:</label> -->
+<!--         <textarea id="notes" name="notes" class="form-control">Do you want to add a message?</textarea> -->
+
+<!--         Multiple Checkboxes (inline) -->
+<!--         <div class="checkbox"> -->
+<!--           <label> -->
+<!--             <input type="checkbox" value="">Yes, I accept the terms of service.</label> -->
+<!--         </div> -->
+
+        <!-- Button -->
+        <br>
+        <p>
+          <button id="submit_button" name="submit_button" class="btn btn-primary"><h6><b>SUBMIT FORM</b></h6></button>
+        </p>
+
+        </fieldset>
+        </form>
+    </div> <!-- end wrapper -->
 </body>
 </html>

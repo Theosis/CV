@@ -1,4 +1,4 @@
-SELECT * FROM cv.person;
+SELECT * FROM cv.person where person.name like '%Geo%';
 select * from cv.edu;
 select * from cv.wrk;
 select * from cv.dty;

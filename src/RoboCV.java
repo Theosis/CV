@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 
-public class RoboResume {
+public class RoboCV {
 			
-		public static void main(String[] args) {
+		public static void fill() {
 
 		Scanner kb = new Scanner(System.in);
 		

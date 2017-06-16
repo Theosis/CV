@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web CV Formatter</title>
+<style>
+body {
+  	background: url(linen.png) repeat center top;
+    font-size: 16px;
+    font-family: Helvetica,Arial,Verdana,sans-serif;
+    color: #c7c5c5;
+    line-height: 1.5em;
+    display: block;
+}
+</style>
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+  window.alert("JS start - press Enter to continue");
+  pers_form='<form action="CV" method="post">Name:<input type="text" name="fName"><br>Email:<input type="text" name="fEmail"><br><br><input type="submit" value="Submit"></form>';
+  console.log(pers_form);
+  $("#formDiv").html(pers_form);
+</script>
+</head>
+<body>
+<p>CV Data Input
+</p>
+<div id='formDiv'>
+</div>
+</body>
+</html>
