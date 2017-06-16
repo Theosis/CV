@@ -7,7 +7,7 @@
 <title>Person Information</title>
 </head>
 <body>
-<h1>The result of your query is:</h1>
-<h2>${msg}</h2><br>
+<!-- <h1>The result of your query is:</h1> -->
+${msg}
 </body>
 </html>
